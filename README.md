@@ -1,4 +1,4 @@
-Image Generation Using Blender (3D Text Rendering)
+## **Image Generation Using Blender (3D Text Rendering)**
 Overview
 This project generates 3D images of text using Blender 4.2. The script runs Blender in the background, automates the creation of 3D text, and renders the image according to your specifications. It uses Python to call Blender and run the rendering process.
 
@@ -22,7 +22,7 @@ Clone the GitHub repository to your local machine using the following command:
 bash
 Copy
 git clone https://github.com/sunilsonumonu12/Image-Generation-using-blender.git
-Replace your-username and your-repository with your actual GitHub username and repository name.
+
 
 Modify the Script Paths:
 
