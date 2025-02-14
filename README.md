@@ -26,6 +26,24 @@ Before you begin, ensure that the following software is installed:
 
 ### **2. Clone the Project**  
 Clone the GitHub repository to your local machine using the following command:  
+## **3. Modify the Script Paths**  
+Open the Python script files (e.g., `oct12.py`, `july31ww5.py`, etc.) and update the hardcoded paths to match your system.
+
+### **Paths to Update**  
+- **Blender Executable Path** (`blender_executable`)  
+- **Blender File Path** (`blend_file_path`)  
+- **Image Save Path** (`image_path`)  
+
+---
+
+### **Example: Updating Blender Executable Path**  
+Change this line in your script:
+
+```python
+blender_executable = 'C:/Program Files/Blender Foundation/Blender 4.2/blender.exe'
 
 ```bash
+
+
 git clone https://github.com/sunilsonumonu12/Image-Generation-using-blender.git
+
