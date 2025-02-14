@@ -1,0 +1,59 @@
+/* styles.css */
+
+/* Custom animation for gradient text */
+@keyframes gradient-animation {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+/* Full height for the first section */
+.section-one {
+    height: 100vh; /* Full viewport height */
+    background-image: url('../images/simple15.jpg'); /* Correct path for the first background image */
+    background-size: cover; /* Cover the entire section */
+    background-position: center; /* Center the image */
+    display: flex; /* Flexbox for centering content */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    position: relative; /* For absolute positioning of overlay */
+}
+
+/* Text overlay styles */
+.overlay {
+    position: absolute; /* Positioned relative to section */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex; /* Flexbox for centering text */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    z-index: 10; /* Ensure text is above the background */
+    color: white; /* Text color */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Shadow for better readability */
+}
+
+/* Gradient text style */
+.gradient-text {
+    background: linear-gradient(90deg, #ff7e5f, #feb47b, #ff7e5f);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-animation 3s ease infinite;
+}
+
+/* Hover effect for text to scale up */
+.hover-scale:hover {
+    transform: scale(1.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Hover effect for input to expand horizontally */
+.hover-expand:hover {
+    transform: scaleX(1.1); /* Expands horizontally */
+    transition: transform 0.3s ease-in-out;
+}

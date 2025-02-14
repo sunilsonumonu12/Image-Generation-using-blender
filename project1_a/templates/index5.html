@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Generator</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- JavaScript to Display Notifications -->
+    <script>
+        function notify(message) {
+            alert(message); // Simple alert for notification; can be customized
+        }
+    </script>
+</head>
+<body class="h-screen overflow-y-scroll bg-gray-100">
+    <div class="h-screen relative flex items-center justify-center bg-cover bg-center" style="background-image: url('static/images/simple15.jpg');">
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        <div class="relative z-10 text-center">
+            <h1 class="text-8xl md:text-9xl font-extrabold bg-gradient-to-r from-pink-500 to-yellow-500 bg-clip-text text-transparent transition-transform duration-300 transform hover:scale-110">
+                Image Generator
+            </h1>
+            <form action="/save-text" method="POST" class="flex justify-center mt-4">
+                <input type="text" name="input_text" placeholder="Enter text to save" 
+                       class="w-full max-w-md px-4 py-3 text-lg border border-gray-300 rounded-full shadow-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-transform duration-300 transform hover:scale-105" required>
+                <button type="submit" class="mt-2 ml-2 px-4 py-3 bg-gradient-to-r from-red-400 to-orange-500 text-white rounded-full shadow-lg transform transition-transform duration-300 hover:scale-110 hover:bg-gradient-to-l focus:outline-none focus:ring-2 focus:ring-yellow-400">
+                    Save Text
+                </button>
+            </form>
+        </div>
+    </div>
+    <div class="h-screen relative flex items-center justify-center bg-cover bg-center" style="background-image: url('static/images/simple5.jpg');">
+        <!-- Background overlay for darkening effect -->
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        
+        <!-- Main content -->
+        <div class="relative z-10 text-center max-w-4xl mx-auto p-6 bg-opacity-80">
+            <h2 class="text-5xl md:text-6xl font-extrabold bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent mb-10 transition-transform duration-300 transform hover:scale-110">
+                5 Ways for Generator
+            </h2>
+    
+            <!-- Script options as gradient rectangle covers -->
+            <div class="space-y-6">
+                <!-- Script 1 -->
+                <div class="flex items-center justify-center h-16 rounded-lg bg-gradient-to-r from-green-500 to-teal-400 transition duration-300 transform hover:scale-105 hover:from-green-300 hover:to-teal-200">
+                    <p class="text-white font-bold text-lg">1. Script 1: Forest-like Background</p>
+                </div>
+                <!-- Script 2 -->
+                <div class="flex items-center justify-center h-16 rounded-lg bg-gradient-to-r from-yellow-500 to-orange-400 transition duration-300 transform hover:scale-105 hover:from-yellow-300 hover:to-orange-200">
+                    <p class="text-white font-bold text-lg">2. Script 2: Flashy Background</p>
+                </div>
+                <!-- Script 3 -->
+                <div class="flex items-center justify-center h-16 rounded-lg bg-gradient-to-r from-blue-500 to-cyan-400 transition duration-300 transform hover:scale-105 hover:from-blue-300 hover:to-cyan-200">
+                    <p class="text-white font-bold text-lg">3. Script 3: Icy Background</p>
+                </div>
+                <!-- Script 4 -->
+                <div class="flex items-center justify-center h-16 rounded-lg bg-gradient-to-r from-purple-500 to-pink-400 transition duration-300 transform hover:scale-105 hover:from-purple-300 hover:to-pink-200">
+                    <p class="text-white font-bold text-lg">4. Script 4: Cool Night Background</p>
+                </div>
+                <!-- Script 5 -->
+                <div class="flex items-center justify-center h-16 rounded-lg bg-gradient-to-r from-pink-500 to-red-400 transition duration-300 transform hover:scale-105 hover:from-pink-300 hover:to-red-200">
+                    <p class="text-white font-bold text-lg">5. Script 5: Plain Flash Background</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    <!-- Additional Content to enable scrolling -->
+    <div class="h-screen relative flex items-center justify-center bg-cover bg-center" style="background-image: url('static/images/simple5.jpg');">
+        <div class="absolute inset-0 bg-black opacity-50"></div>
+        <div class="relative z-10 text-center">
+            <h2 class="text-6xl md:text-7xl font-extrabold bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent mt-10 transition-transform duration-300 transform hover:scale-110">
+                5 Ways for Generator
+            </h2>
+
+            <!-- Button Forms to Trigger Scripts -->
+            <div class="mt-8 space-y-4">
+                <form action="/handle-buttons" method="POST" onsubmit="notify('Way 1 triggered');">
+                    <input type="hidden" name="action" value="run_script1">
+                    <button type="submit" class="w-56 px-4 py-3 bg-gradient-to-r from-red-400 to-yellow-500 text-white rounded-full shadow-lg transform transition-transform duration-300 hover:scale-110">
+                        Way 1
+                    </button>
+                </form>
+                <form action="/handle-buttons" method="POST" onsubmit="notify('Way 2 triggered');">
+                    <input type="hidden" name="action" value="run_script2">
+                    <button type="submit" class="w-56 px-4 py-3 bg-gradient-to-r from-blue-400 to-purple-500 text-white rounded-full shadow-lg transform transition-transform duration-300 hover:scale-110">
+                        Way 2
+                    </button>
+                </form>
+                <form action="/handle-buttons" method="POST" onsubmit="notify('Way 3 triggered');">
+                    <input type="hidden" name="action" value="run_script3">
+                    <button type="submit" class="w-56 px-4 py-3 bg-gradient-to-r from-green-400 to-blue-500 text-white rounded-full shadow-lg transform transition-transform duration-300 hover:scale-110">
+                        Way 3
+                    </button>
+                </form>
+                <form action="/handle-buttons" method="POST" onsubmit="notify('Way 4 triggered');">
+                    <input type="hidden" name="action" value="run_script4">
+                    <button type="submit" class="w-56 px-4 py-3 bg-gradient-to-r from-yellow-400 to-red-500 text-white rounded-full shadow-lg transform transition-transform duration-300 hover:scale-110">
+                        Way 4
+                    </button>
+                </form>
+                <form action="/handle-buttons" method="POST" onsubmit="notify('Way 5 triggered');">
+                    <input type="hidden" name="action" value="run_script5">
+                    <button type="submit" class="w-56 px-4 py-3 bg-gradient-to-r from-purple-400 to-pink-500 text-white rounded-full shadow-lg transform transition-transform duration-300 hover:scale-110">
+                        Way 5
+                    </button>
+                </form>
+            </div>
+            <p class="text-gray-600 text-xl mt-8">Scroll down for more content...</p>
+        </div>
+    </div>
+</body>
+</html>
+

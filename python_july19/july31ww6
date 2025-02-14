@@ -1,0 +1,62 @@
+import bpy
+
+# Delete all objects in the scene
+bpy.ops.object.select_all(action='SELECT')
+bpy.ops.object.delete(use_global=False)
+
+# Create a new cube
+bpy.ops.mesh.primitive_cube_add(size=2, location=(0, 0, 0))
+cube = bpy.context.object
+
+# Switch to Edit Mode to unwrap the UVs
+bpy.ops.object.mode_set(mode='EDIT')
+
+# Unwrap the cube's UVs
+bpy.ops.uv.unwrap(method='ANGLE_BASED', margin=0.001)
+
+# Switch back to Object Mode
+bpy.ops.object.mode_set(mode='OBJECT')
+
+# Load the image for the texture
+image_path = r"C:\Users\sunil\OneDrive\Desktop\Db2 Challenges\organise\Beuatiful\placement_19july\python_july19\simple3.png"
+image = bpy.data.images.load(image_path)
+
+# Create a new material
+material = bpy.data.materials.new(name="CubeMaterial")
+material.use_nodes = True
+
+# Get the material's node tree
+nodes = material.node_tree.nodes
+
+# Remove the default Principled BSDF shader
+for node in nodes:
+    nodes.remove(node)
+
+# Add a new Image Texture node
+image_texture = nodes.new(type='ShaderNodeTexImage')
+image_texture.image = image
+
+# Add a Diffuse BSDF shader
+diffuse = nodes.new(type='ShaderNodeBsdfDiffuse')
+
+# Add a Material Output node
+material_output = nodes.new(type='ShaderNodeOutputMaterial')
+
+# Connect the nodes
+material.node_tree.links.new(image_texture.outputs['Color'], diffuse.inputs['Color'])
+material.node_tree.links.new(diffuse.outputs['BSDF'], material_output.inputs['Surface'])
+
+# Assign the material to the cube
+if cube.data.materials:
+    cube.data.materials[0] = material
+else:
+    cube.data.materials.append(material)
+
+# Switch to UV Editing layout
+for area in bpy.context.screen.areas:
+    if area.type == 'IMAGE_EDITOR':
+        area.spaces.active.image = image
+        break
+
+# Update the viewport
+bpy.context.view_layer.update()
