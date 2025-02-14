@@ -39,7 +39,10 @@ Open the Python script files (e.g., `oct12.py`, `july31ww5.py`, etc.) and update
 ### **Example: Updating Blender Executable Path**  
 Change this line in your script:
 
+
 ```python
+
+
 blender_executable = 'C:/Program Files/Blender Foundation/Blender 4.2/blender.exe'
 
 ```bash
